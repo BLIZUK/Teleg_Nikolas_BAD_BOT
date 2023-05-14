@@ -7,7 +7,7 @@ import telebot
 import datetime
 from telebot import types
 
-
+#  Ключ для бота, не потеряй
 bot = telebot.TeleBot('6236925585:AAGNPQDWA9nwt-3gqc309ptYDzacSiukcJc')
 
 
@@ -15,13 +15,16 @@ bot = telebot.TeleBot('6236925585:AAGNPQDWA9nwt-3gqc309ptYDzacSiukcJc')
 @bot.message_handler(commands=['start'])
 def start(message):
     keyboard = types.ReplyKeyboardMarkup()
+    #  Это настройки кнопок
     keyboard.row('/help', 'Хочу', 'github', 'дата', 'прогноз', 'version')
-    bot.send_message(message.chat.id, ' Привет! Хочешь узнать свежую информацию о МТУСИ', reply_markup=keyboard)
+    #  Сообщение выводитсья при начале работы с ботом 
+    bot.send_message(message.chat.id, ' Привет! Хочешь узнать свежую информацию о МТУСИ?', reply_markup=keyboard)
 
 
 #  Обьявление кнопки help
 @bot.message_handler(commands=['help'])
 def start_message(message):
+    #  Вывод команды help 
     bot.send_message(message.chat.id, 'github - ссылка на гит \n'
                                       'дата - показать сегодняшнюю дату \n'
                                       'version - показать версию бота \n'
@@ -32,7 +35,7 @@ def start_message(message):
 #  Обьявление кнопки вызова профиля гит
 @bot.message_handler(commands=['github'])
 def start_message(message):
-    bot.send_message(message.chat.id, 'Ссылка на гитхаб - https://github.com/BLIZUK')
+    bot.send_message(message.chat.id, 'Ссылка на гитхаб - https://github.com/BLIZUK')  #  Пока мой, для проверки, не забудь !!!
 
 
 #  Обьявление кнопки вызова даты
